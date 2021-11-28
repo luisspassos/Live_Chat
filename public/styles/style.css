@@ -47,19 +47,20 @@ main {
 .sendMessage {
     position: relative;
     display: flex;
-    align-items: center;
+    flex-direction: column;
     margin: auto 0 10px 20px;
 }
 
 .emojiList {
     list-style: none;
     background: white;
-    display: flex;
+    display: none;
     width: 152px;
     flex-wrap: wrap;
     border-radius: 10px;
     box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.404);
     overflow: hidden;
+    margin-bottom: 3px;
 }
 
 .emojiList > li {
@@ -76,7 +77,12 @@ main {
     background: rgba(0, 0, 0, 0.384);
 }
 
-.sendMessage > div {
+.messageInput {
+    display: flex;
+    align-items: center;
+}
+
+.messageInput > div {
     resize: none;
     background: var(--DARK-PURPLE);
     min-height: 48px;
@@ -91,31 +97,32 @@ main {
     position: relative;
 }
 
-.sendMessage > div:empty:before {
+.messageInput > div:empty:before {
     content:attr(data-placeholder);
     color: var(--WHITE-PRIMARY);
+    cursor: text;
 }
   
 
-.sendMessage > div:focus {
+.messageInput > div:focus {
     outline: var(--PURPLE-SECONDARY) solid 3px;
 }
 
-.sendMessage > img {
+.messageInput > img {
     width: 32px;
     position: absolute;
     left: 10px;
     cursor: pointer;
 }
 
-.sendMessage > button {
+.messageInput > button {
     background: transparent;
     border: 0;
     cursor: pointer;
-    margin-left: 10px;
+    margin-left: 15px;
 }
 
-.sendMessage > button > img {
+.messageInput > button > img {
     width: 40px;
 }
 
