@@ -97,12 +97,12 @@ main {
    resize: none;
    width: 100%;
    font-size: 1.3em;
-   text-align: justify;
    background: var(--DARK-PURPLE);
    outline: 0;
    color: white;
    border: 0;
    padding: 10px 10px 10px 52px;
+   line-height: 1.4em;
 }
 
 .textAreaWrapper > textarea::placeholder {
