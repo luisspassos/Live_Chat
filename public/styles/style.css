@@ -91,6 +91,8 @@ main {
     box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.404);
     overflow: hidden;
     margin-bottom: 3px;
+    position: absolute;
+    transform: translateY(calc(-100% - 10px));
 }
 
 .emojiList > li {
