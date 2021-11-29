@@ -102,7 +102,6 @@ main {
     color: var(--WHITE-PRIMARY);
     cursor: text;
 }
-  
 
 .messageInput > div:focus {
     outline: var(--PURPLE-SECONDARY) solid 3px;

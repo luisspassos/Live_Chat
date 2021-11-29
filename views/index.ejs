@@ -23,25 +23,25 @@
         </ul>
         <form class="sendMessage">
             <ul class="emojiList">
-                <li>&#x1F600;</li>
-                <li>&#x1F602;</li>
-                <li>&#x1F929;</li>
-                <li>&#x1F62D;</li>
-                <li>&#x1F3C7;</li>
-                <li>&#x1F36C;</li>
-                <li>&#x1F964;</li>
-                <li>&#x1F34C;</li>
-                <li>&#x1F36B;</li>
-                <li>&#x1F36A;</li>
-                <li>&#x1F95E;</li>
-                <li>&#x1F9C1;</li>
-                <li>&#x1F389;</li>
-                <li>&#x1F973;</li>
-                <li>&#x1F92A;</li>
-                <li>&#x1F643;</li>
+                <li onclick="insertEmoji('😀')">&#x1F600;</li>
+                <li onclick="insertEmoji('😂')">&#x1F602;</li>
+                <li onclick="insertEmoji('🤩')">&#x1F929;</li>
+                <li onclick="insertEmoji('😭')">&#x1F62D;</li>
+                <li onclick="insertEmoji('🏇')">&#x1F3C7;</li>
+                <li onclick="insertEmoji('🍬')">&#x1F36C;</li>
+                <li onclick="insertEmoji('🥤')">&#x1F964;</li>
+                <li onclick="insertEmoji('🍌')">&#x1F34C;</li>
+                <li onclick="insertEmoji('🍫')">&#x1F36B;</li>
+                <li onclick="insertEmoji('🍪')">&#x1F36A;</li>
+                <li onclick="insertEmoji('🥞')">&#x1F95E;</li>
+                <li onclick="insertEmoji('🧁')">&#x1F9C1;</li>
+                <li onclick="insertEmoji('🎉')">&#x1F389;</li>
+                <li onclick="insertEmoji('🥳')">&#x1F973;</li>
+                <li onclick="insertEmoji('🤪')">&#x1F92A;</li>
+                <li onclick="insertEmoji('🙃')">&#x1F643;</li>
             </ul>
             <section class="messageInput">
-                <div contenteditable data-placeholder="Digite alguma mensagem..."></div>
+                <div ondragover="return false" ondrop="return false" contenteditable data-placeholder="Digite alguma mensagem..."></div>
                 <img src="assets/face.svg" alt="Emojis">
                 <button><img src="assets/send.svg" alt="Enviar" /></button>
             </section>
