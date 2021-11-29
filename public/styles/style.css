@@ -44,10 +44,40 @@ main {
     height: calc(100vh - 66px);
 }
 
+.messages {
+    display: flex;
+    flex-direction: column;
+}
+
+.messageList {
+    padding: 30px 40px 30px 30px;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    overflow-y: scroll;
+}
+
+.messageList > li {
+    color: white;
+    font-size: 1.2em;
+    line-height: 1.4em;
+}
+
+.messageList > li > label {
+    color: #50FA7B;
+}
+
+.messageList > li > hr {
+    border-color: var(--PURPLE-TERTIARY);
+    margin-top: 15px;
+}
+
 .sendMessage {
     position: relative;
     display: flex;
     flex-direction: column;
+    padding-top: 15px;
     margin: auto 0 10px 20px;
 }
 
@@ -133,6 +163,7 @@ main {
     width: 290px;
     display: flex;
     flex-direction: column;
+    flex-shrink: 0;
 }
 
 .online > h2 {
