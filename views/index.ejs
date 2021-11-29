@@ -41,7 +41,9 @@
                 <li onclick="insertEmoji('🙃')">&#x1F643;</li>
             </ul>
             <section class="messageInput">
-                <div ondragover="return false" ondrop="return false" contenteditable data-placeholder="Digite alguma mensagem..."></div>
+                <div class="textAreaWrapper">
+                    <textarea rows="1" placeholder="Digite alguma mensagem..."></textarea>
+                </div>
                 <img src="assets/face.svg" alt="Emojis">
                 <button><img src="assets/send.svg" alt="Enviar" /></button>
             </section>

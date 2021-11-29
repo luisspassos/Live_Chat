@@ -82,29 +82,31 @@ main {
     align-items: center;
 }
 
-.messageInput > div {
-    resize: none;
+.textAreaWrapper {
     background: var(--DARK-PURPLE);
-    min-height: 48px;
-    max-height: 199px;
     width: 850px;
-    border: 0;
+    min-height: 48px;
     outline: var(--PURPLE-TERTIARY) solid 3px;
     border-radius: 10px;
-    color: white;
-    font-size: 1.3em;
-    padding: 12px 10px 12px 52px;
-    position: relative;
-}
-
-.messageInput > div:empty:before {
-    content:attr(data-placeholder);
-    color: var(--WHITE-PRIMARY);
+    display: flex;
+    align-items: center;
     cursor: text;
 }
 
-.messageInput > div:focus {
-    outline: var(--PURPLE-SECONDARY) solid 3px;
+.textAreaWrapper > textarea {
+   resize: none;
+   width: 100%;
+   font-size: 1.3em;
+   text-align: justify;
+   background: var(--DARK-PURPLE);
+   outline: 0;
+   color: white;
+   border: 0;
+   padding: 10px 10px 10px 52px;
+}
+
+.textAreaWrapper > textarea::placeholder {
+    color: var(--WHITE-PRIMARY);
 }
 
 .messageInput > img {
