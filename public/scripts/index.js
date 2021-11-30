@@ -12,11 +12,11 @@ messageTextAreaWrapper.addEventListener("click", () => {
 })
 
 messageTextArea.addEventListener("focus", () => {
-    messageTextAreaWrapper.style.outline = "var(--PURPLE-SECONDARY) solid 3px"
+    messageTextAreaWrapper.style.border = "var(--PURPLE-SECONDARY) solid 3px"
 })
 
 messageTextArea.addEventListener("blur", () => {
-    messageTextAreaWrapper.style.outline = "var(--PURPLE-TERTIARY) solid 3px"
+    messageTextAreaWrapper.style.border = "var(--PURPLE-TERTIARY) solid 3px"
 })
 
 const tx = document.getElementsByTagName("textarea");
