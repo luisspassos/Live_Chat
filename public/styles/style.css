@@ -10,6 +10,7 @@
     --PURPLE-PRIMARY: #9991C4;
     --PURPLE-SECONDARY: #C1B7F7;
     --PURPLE-TERTIARY: rgba(193, 183, 247, 0.253);
+    --PURPLE-QUATERNARY: #3F3578;
     --WHITE-PRIMARY: rgba(255, 255, 255, 0.5);
     --WHITE-SECONDARY: rgba(255, 255, 255, 0.8);
 }
@@ -42,6 +43,81 @@ header {
 main {
     display: flex;
     height: calc(100vh - 66px);
+}
+
+.modalWrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+    width: 100vw;
+    height: 100vh;
+    z-index: 30;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal {
+    background: var(--DARK-PURPLE);
+    color: white;
+    height: 400px;
+    width: 650px;
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.466);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    font-size: 1.7em;
+    margin: 0 30px;
+    padding: 20px;
+}
+
+.modal > form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.modal > form > input {
+    width: 100%;
+    max-width: 430px;
+    height: 45px;
+    font-size: .8em;
+    background: var(--DARK-PURPLE);
+    border: 0;
+    outline: var(--PURPLE-TERTIARY) solid 3px;
+    color: white;
+    border-radius: 5px;
+    padding: 0 12px;
+}
+
+.modal > form > input:focus {
+    outline: var(--PURPLE-SECONDARY) solid 3px;
+}
+
+.modal > form > input::placeholder {
+    color: var(--WHITE-PRIMARY);
+}
+
+.modal > form > button {
+    color: white;
+    background: var(--PURPLE-QUATERNARY);
+    font-weight: bold;
+    font-size: .6em;
+    border: 0;
+    width: 100%;
+    max-width: 430px;
+    height: 45px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.modal > form > button:hover {
+    filter: brightness(0.9);
 }
 
 .messages {
@@ -204,4 +280,10 @@ main {
 
 .online > ul > li:nth-child(4) {
     color: #FF5555;
+}
+
+@media (max-width: 443px) {
+    html {
+        font-size: 14px;
+    }
 }
