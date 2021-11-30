@@ -42,9 +42,21 @@ header {
     justify-content: space-between;
 }
 
-header > img {
+header > svg {
     width: 40px;
     cursor: pointer;
+}
+
+.usersOn {
+    fill: white;
+}
+
+.usersOff {
+    fill: var(--WHITE-PRIMARY);
+}
+
+header > svg:hover {
+    fill: white;
 }
 
 main {
@@ -258,6 +270,14 @@ main {
     flex-shrink: 0;
 }
 
+.onlineOn {
+    display: flex;
+}
+
+.onlineOff {
+    display: none;
+}
+
 .online > h2 {
     color: var(--PURPLE-SECONDARY);
     font-size: 2.1em;
@@ -294,12 +314,6 @@ main {
 
 .online > ul > li:nth-child(4) {
     color: #FF5555;
-}
-
-@media (max-width: 800px) {
-    .online {
-        display: none;
-    }
 }
 
 @media (max-width: 443px) {

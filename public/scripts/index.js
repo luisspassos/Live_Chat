@@ -4,18 +4,28 @@ const openEmojiListBtn = document.querySelector(".messageInput > img");
 const messageTextAreaWrapper = document.querySelector(".textAreaWrapper");
 const messageTextArea = document.querySelector(".textAreaWrapper > textarea");
 const modal = document.querySelector(".modal");
-const usersBtn = document.querySelector("header > img");
+const usersBtn = document.querySelector("header > svg");
 const onlineUsers = document.querySelector(".online");
 
 // header
 
-usersBtn.addEventListener("click", () => {
-    const onlineUsersStyle = window.getComputedStyle(onlineUsers);
-    if(onlineUsersStyle.display === "flex") {
-        onlineUsers.style.display = "none"
+function handleUsers() {
+    const onlineUsersStyle = window.getComputedStyle(onlineUsers)
+    if(onlineUsersStyle.display === "flex" ) {
+        onlineUsers.classList.add("onlineOff")
+        usersBtn.classList.add("usersOff")
+        onlineUsers.classList.remove("onlineOn")
+        usersBtn.classList.remove("usersOn")
     } else {
-        onlineUsers.style.display = "flex"
+        onlineUsers.classList.remove("onlineOff")
+        usersBtn.classList.remove("usersOff")
+        onlineUsers.classList.add("onlineOn")
+        usersBtn.classList.add("usersOn")
     }
+}
+
+usersBtn.addEventListener("click", () => {
+    handleUsers()
 })
 
 //Textarea
