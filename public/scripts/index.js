@@ -3,6 +3,7 @@ const emojis = document.querySelectorAll(".emojiList > li");
 const openEmojiListBtn = document.querySelector(".messageInput > img");
 const messageTextAreaWrapper = document.querySelector(".textAreaWrapper");
 const messageTextArea = document.querySelector(".textAreaWrapper > textarea");
+const modal = document.querySelector(".modal");
 
 //Textarea
 
@@ -50,4 +51,10 @@ function insertEmoji(emoji) {
     messageTextArea.value += emoji;
 }
 
+// modal
+
+window.addEventListener("load", ()=> {
+    modal.style.opacity = 1;
+    modal.style.transform = "translateY(0)"
+})
 

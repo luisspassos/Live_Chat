@@ -73,6 +73,9 @@ main {
     font-size: 1.7em;
     margin: 0 30px;
     padding: 20px;
+    opacity: 0;
+    transition: .5s;
+    transform: translateY(30%);
 }
 
 .modal > form {
