@@ -198,8 +198,8 @@ main {
     width: 100%;
     max-width: 850px;
     min-height: 48px;
-    max-height: 136px;
-    border: var(--PURPLE-TERTIARY) solid 3px;
+    outline: var(--PURPLE-TERTIARY) solid 3px;
+    border-radius: 10px;
     display: flex;
     align-items: center;
     cursor: text;
@@ -210,6 +210,7 @@ main {
    width: 100%;
    font-size: 1.3em;
    background: var(--DARK-PURPLE);
+   border-radius: 10px;
    outline: 0;
    color: white;
    border: 0;

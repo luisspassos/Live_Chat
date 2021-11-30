@@ -12,29 +12,25 @@ messageTextAreaWrapper.addEventListener("click", () => {
 })
 
 messageTextArea.addEventListener("focus", () => {
-    messageTextAreaWrapper.style.border = "var(--PURPLE-SECONDARY) solid 3px"
+    messageTextAreaWrapper.style.outline = "var(--PURPLE-SECONDARY) solid 3px"
 })
 
 messageTextArea.addEventListener("blur", () => {
-    messageTextAreaWrapper.style.border = "var(--PURPLE-TERTIARY) solid 3px"
+    messageTextAreaWrapper.style.outline = "var(--PURPLE-TERTIARY) solid 3px"
 })
 
-const tx = document.getElementsByTagName("textarea");
-for (let i = 0; i < tx.length; i++) {
-
-    tx[i].setAttribute("style", "height:" + (tx[i].scrollHeight) + "px;overflow-y:hidden;");
-    tx[i].addEventListener("input", OnInput, false);
-
-}
+messageTextArea.setAttribute("style", "height:" + (messageTextArea.scrollHeight) + "px;overflow-y:hidden;");
+messageTextArea.addEventListener("input", OnInput, false);
 
 function OnInput() {
-    if(this.clientHeight < 136) {
+    if(this.scrollHeight <= 136) {
         this.style.height = "auto";
-        this.style.height = (this.scrollHeight) + "px";    
+        this.style.height = (this.scrollHeight) + "px";
+        this.style.overflowY = "hidden";
     } else {
-        this.style.overflowY = "scroll"
+        this.style.overflowY = "scroll";
     }
-}
+} 
 
 
 // emoji List
