@@ -4,6 +4,19 @@ const openEmojiListBtn = document.querySelector(".messageInput > img");
 const messageTextAreaWrapper = document.querySelector(".textAreaWrapper");
 const messageTextArea = document.querySelector(".textAreaWrapper > textarea");
 const modal = document.querySelector(".modal");
+const usersBtn = document.querySelector("header > img");
+const onlineUsers = document.querySelector(".online");
+
+// header
+
+usersBtn.addEventListener("click", () => {
+    const onlineUsersStyle = window.getComputedStyle(onlineUsers);
+    if(onlineUsersStyle.display === "flex") {
+        onlineUsers.style.display = "none"
+    } else {
+        onlineUsers.style.display = "flex"
+    }
+})
 
 //Textarea
 
@@ -23,14 +36,14 @@ messageTextArea.setAttribute("style", "height:" + (messageTextArea.scrollHeight)
 messageTextArea.addEventListener("input", OnInput, false);
 
 function OnInput() {
-    if(this.scrollHeight <= 136) {
+    if (this.scrollHeight <= 136) {
         this.style.height = "auto";
         this.style.height = (this.scrollHeight) + "px";
         this.style.overflowY = "hidden";
     } else {
         this.style.overflowY = "scroll";
     }
-} 
+}
 
 
 // emoji List
