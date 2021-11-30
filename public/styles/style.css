@@ -157,7 +157,7 @@ main {
     display: flex;
     flex-direction: column;
     padding-top: 15px;
-    margin: auto 0 10px 20px;
+    margin: auto 40px 10px 20px;
 }
 
 .emojiList {
@@ -195,7 +195,8 @@ main {
 
 .textAreaWrapper {
     background: var(--DARK-PURPLE);
-    width: 850px;
+    width: 100%;
+    max-width: 850px;
     min-height: 48px;
     outline: var(--PURPLE-TERTIARY) solid 3px;
     border-radius: 10px;
@@ -213,10 +214,12 @@ main {
    color: white;
    border: 0;
    padding: 10px 10px 10px 52px;
-   line-height: 1.4em;
+   line-height: 1.4em; 
 }
 
 .textAreaWrapper > textarea::placeholder {
+    overflow-x: hidden;
+    white-space: nowrap;
     color: var(--WHITE-PRIMARY);
 }
 
@@ -285,8 +288,15 @@ main {
     color: #FF5555;
 }
 
+@media (max-width: 800px) {
+    .online {
+        display: none;
+    }
+}
+
 @media (max-width: 443px) {
     html {
         font-size: 14px;
     }
+
 }
