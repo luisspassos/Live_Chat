@@ -198,6 +198,7 @@ main {
     width: 100%;
     max-width: 850px;
     min-height: 48px;
+    max-height: 136px;
     outline: var(--PURPLE-TERTIARY) solid 3px;
     border-radius: 10px;
     display: flex;
@@ -214,7 +215,7 @@ main {
    color: white;
    border: 0;
    padding: 10px 10px 10px 52px;
-   line-height: 1.4em; 
+   line-height: 1.4em;
 }
 
 .textAreaWrapper > textarea::placeholder {
@@ -295,6 +296,7 @@ main {
 }
 
 @media (max-width: 443px) {
+
     html {
         font-size: 14px;
     }
