@@ -150,6 +150,7 @@ main {
     flex-direction: column;
     gap: 15px;
     overflow-y: scroll;
+    word-wrap: normal;
 }
 
 .messageList > li {

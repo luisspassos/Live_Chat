@@ -12,13 +12,18 @@ app.get("/", (req, res) => {
 })
 
 const messages = [];
-const users = [];
+let users = [];
 
 io.on('connection', socket => {
     console.log(`Socket conectado: ${socket.id}`)
 
     socket.on('disconnect', () => {
-        
+        const userIndex = users.findIndex(user => user.id === socket.id)
+
+        users.splice(userIndex, 1)
+
+        socket.broadcast.emit("disconnectedUser", users)
+
     })
 
     socket.emit("previousUser", users)
@@ -30,9 +35,9 @@ io.on('connection', socket => {
     })
 
     socket.on("sendUser", data => {
-        data.id = socket.id;
-        users.push(data)
-        socket.broadcast.emit("receivedUser", [data]);
+        data[data.length - 1].id = socket.id;
+        users = data;
+        socket.broadcast.emit("receivedUser", users);
     })
 })
 

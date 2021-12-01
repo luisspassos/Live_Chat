@@ -21,14 +21,21 @@ function renderUserList(users) {
     }).join("")
 }
 
+socket.on("disconnectedUser", users => {
+    renderUserList(users)
+})
+
 socket.on("previousMessage", messages => {
     messages.forEach(message => {
         renderMessage(message);
     })
 })
 
+let userArr = [];
+
 socket.on("previousUser", users => {
     renderUserList(users);
+    userArr = users;
 })
 // ver responsividade dps !!!!!!!!!!!
 socket.on("receivedMessage", message => {
@@ -38,6 +45,7 @@ socket.on("receivedMessage", message => {
 socket.on("receivedUser", users => {
     renderUserList(users)
 })
+
 
 modalForm.addEventListener("submit", (e)=> {
     e.preventDefault();
@@ -50,10 +58,9 @@ modalForm.addEventListener("submit", (e)=> {
             user: modalNameInput.value,
             color: color
         }
-
-        renderUserList(userObject)
-
-        socket.emit("sendUser", userObject)
+        userArr.push(userObject)
+        renderUserList(userArr)
+        socket.emit("sendUser", userArr)
 
     } else {
         alert("Nome de usuário incorreto.")
