@@ -8,14 +8,19 @@ app.set("view engine", "ejs")
 app.use(express.static(__dirname + '/public'))
 
 app.get("/", (req, res) => {
-    res.render("./index.ejs")
+    res.render("./index.ejs" )
 })
+
+const messages = [];
 
 io.on('connection', socket => {
     console.log(`Socket conectado: ${socket.id}`)
 
+    socket.emit("previousMessage", messages)
+
     socket.on("sendMessage", data => {
-        console.log(data)
+        messages.push(data)
+        socket.broadcast.emit("receivedMessage", data);
     })
 })
 

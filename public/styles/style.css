@@ -140,6 +140,7 @@ main {
 .messages {
     display: flex;
     flex-direction: column;
+    flex: 1;
 }
 
 .messageList {
@@ -292,22 +293,6 @@ main {
     font-weight: bold;
     font-size: 1.5em;
     padding-bottom: 5px;
-}
-
-.online > ul > li:nth-child(1) {
-    color: #8BE9FD;
-}
-
-.online > ul > li:nth-child(2) {
-    color: #50FA7B;
-}
-
-.online > ul > li:nth-child(3) {
-    color: #FFB86C;
-}
-
-.online > ul > li:nth-child(4) {
-    color: #FF5555;
 }
 
 @media (max-width: 800px) {

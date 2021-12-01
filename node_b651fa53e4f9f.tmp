@@ -1,0 +1,5 @@
+const colors = ["#8BE9FD", "#50FA7B", "#FFB86C", "#FF5555"];
+
+const numero = Math.floor(Math.random() * colors.length);
+
+console.log(colors[numero])
