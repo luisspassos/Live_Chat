@@ -39,6 +39,7 @@ header {
     padding: 12px 25px;
     font-size: 1.1em;
     display: flex;
+    align-items: center;
     justify-content: space-between;
 }
 
@@ -47,21 +48,14 @@ header > svg {
     cursor: pointer;
 }
 
-.usersOn {
-    fill: white;
-}
-
-.usersOff {
-    fill: var(--WHITE-PRIMARY);
-}
-
 header > svg:hover {
-    fill: white;
+    fill: var(--WHITE-SECONDARY);
 }
 
 main {
     display: flex;
     height: calc(100vh - 66px);
+    position: relative;
 }
 
 .modalWrapper {
@@ -268,13 +262,10 @@ main {
     display: flex;
     flex-direction: column;
     flex-shrink: 0;
+    background: var(--DARK-PURPLE);
 }
 
-.onlineOn {
-    display: flex;
-}
-
-.onlineOff {
+.toggleUsers {
     display: none;
 }
 
@@ -314,6 +305,15 @@ main {
 
 .online > ul > li:nth-child(4) {
     color: #FF5555;
+}
+
+@media (max-width: 800px) {
+    .online {
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 100%;
+    }
 }
 
 @media (max-width: 443px) {

@@ -9,23 +9,24 @@ const onlineUsers = document.querySelector(".online");
 
 // header
 
-function handleUsers() {
-    const onlineUsersStyle = window.getComputedStyle(onlineUsers)
-    if(onlineUsersStyle.display === "flex" ) {
-        onlineUsers.classList.add("onlineOff")
-        usersBtn.classList.add("usersOff")
-        onlineUsers.classList.remove("onlineOn")
-        usersBtn.classList.remove("usersOn")
-    } else {
-        onlineUsers.classList.remove("onlineOff")
-        usersBtn.classList.remove("usersOff")
-        onlineUsers.classList.add("onlineOn")
-        usersBtn.classList.add("usersOn")
-    }
-}
+let onlineUsersHandle = false;
 
-usersBtn.addEventListener("click", () => {
-    handleUsers()
+window.innerWidth <= 800 ? onlineUsers.classList.toggle("toggleUsers") : null
+
+window.addEventListener("resize", ()=> {
+    if(!onlineUsersHandle) {
+        if(window.innerWidth <= 800) {
+            onlineUsers.classList.add("toggleUsers")
+        } else {
+            onlineUsers.classList.remove("toggleUsers")
+        }
+    }
+    
+})
+
+usersBtn.addEventListener("click", ()=> {
+    onlineUsers.classList.toggle("toggleUsers")
+    onlineUsersHandle = true;
 })
 
 //Textarea
