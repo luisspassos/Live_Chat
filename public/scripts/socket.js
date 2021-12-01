@@ -4,35 +4,61 @@ const modalForm = document.querySelector(".modal > form");
 const modalNameInput = document.querySelector(".modal > form > input");
 const messageInput = document.querySelector(".textAreaWrapper > textarea");
 const messageList = document.querySelector(".messageList");
+const userList = document.querySelector(".online > ul");
 
 const socket = io("http://localhost:8080");
+
+const colors = ["#8BE9FD", "#50FA7B", "#FFB86C", "#FF5555"];
+const color = colors[Math.floor(Math.random() * colors.length)]
 
 function renderMessage(message) {
     messageList.innerHTML += `<li><label style="color: ${message.color}">${message.name}</label>: ${message.message}<hr></li>`
 }
-// ver isso aqui amanha
-socket.on("previousMessages", messages => {
+
+function renderUserList(user) {
+    userList.innerHTML += `<li style="color: ${user.color}">${user.user}</Li>`
+}
+
+socket.on("previousMessage", messages => {
     messages.forEach(message => {
         renderMessage(message);
     })
 })
 
+socket.on("previousUser", users => {
+    users.forEach(user => {
+        renderUserList(user);
+    })
+})
+// ver responsividade dps !!!!!!!!!!!
 socket.on("receivedMessage", message => {
     renderMessage(message)
+})
+
+socket.on("receivedUser", user => {
+    renderUserList(user)
 })
 
 modalForm.addEventListener("submit", (e)=> {
     e.preventDefault();
 
     if(modalNameInput.value.length) {
+
         modalWrapper.style.display = "none"
+
+        const userObject = {
+            user: modalNameInput.value,
+            color: color
+        }
+
+        renderUserList(userObject)
+
+        socket.emit("sendUser", userObject)
+
     } else {
         alert("Nome de usuário incorreto.")
     }
 })
-
-const colors = ["#8BE9FD", "#50FA7B", "#FFB86C", "#FF5555"];
-const color = colors[Math.floor(Math.random() * colors.length)]
 
 sendMessageForm.addEventListener("submit", (e)=> {
 
