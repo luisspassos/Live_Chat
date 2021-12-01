@@ -12,7 +12,12 @@ const colors = ["#8BE9FD", "#50FA7B", "#FFB86C", "#FF5555"];
 const color = colors[Math.floor(Math.random() * colors.length)]
 
 function renderMessage(message) {
-    messageList.innerHTML += `<li><label style="color: ${message.color}">${message.name}</label>: ${message.message}<hr></li>`
+    messageList.innerHTML += `<li>
+        <label style="color: ${message.color}">${message.name}</label>:
+
+        ${message.message}
+        <hr>
+    </li>`
 }
 
 function renderUserList(users) {
@@ -32,6 +37,7 @@ socket.on("previousMessage", messages => {
 })
 
 let userArr = [];
+let messageArr = [];
 
 socket.on("previousUser", users => {
     renderUserList(users);
@@ -81,9 +87,9 @@ sendMessageForm.addEventListener("submit", (e)=> {
         color: color
     }
 
-    renderMessage(messageObject)
-
-    socket.emit("sendMessage", messageObject)
+    messageArr.push(messageObject)
+    renderMessage(messageArr)
+    socket.emit("sendMessage", messageArr)
     
 })
 
