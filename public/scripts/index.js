@@ -44,15 +44,15 @@ messageTextArea.addEventListener("blur", () => {
 })
 
 messageTextArea.setAttribute("style", "height:" + (messageTextArea.scrollHeight) + "px;overflow-y:hidden;");
-messageTextArea.addEventListener("input", OnInput, false);
+messageTextArea.addEventListener("input", textAreaSize, false);
 
-function OnInput() {
-    if (this.scrollHeight <= 136) {
-        this.style.height = "auto";
-        this.style.height = (this.scrollHeight) + "px";
-        this.style.overflowY = "hidden";
+function textAreaSize() {
+    if (messageTextArea.scrollHeight <= 136) {
+        messageTextArea.style.height = "auto";
+        messageTextArea.style.height = (messageTextArea.scrollHeight) + "px";
+        messageTextArea.style.overflowY = "hidden";
     } else {
-        this.style.overflowY = "scroll";
+        messageTextArea.style.overflowY = "scroll";
     }
 }
 

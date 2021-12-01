@@ -13,8 +13,7 @@ const color = colors[Math.floor(Math.random() * colors.length)]
 
 function renderMessage(message) {
     messageList.innerHTML += `<li>
-        <label style="color: ${message.color}">${message.name}</label>:
-
+        <label style="color: ${message.color}">${message.name}</label>: 
         ${message.message}
         <hr>
     </li>`
@@ -37,7 +36,6 @@ socket.on("previousMessage", messages => {
 })
 
 let userArr = [];
-let messageArr = [];
 
 socket.on("previousUser", users => {
     renderUserList(users);
@@ -73,8 +71,7 @@ modalForm.addEventListener("submit", (e)=> {
     }
 })
 
-sendMessageForm.addEventListener("submit", (e)=> {
-
+function sendMessage(e) {
     e.preventDefault();
     
     const name = modalNameInput.value;
@@ -87,15 +84,18 @@ sendMessageForm.addEventListener("submit", (e)=> {
         color: color
     }
 
-    messageArr.push(messageObject)
-    renderMessage(messageArr)
-    socket.emit("sendMessage", messageArr)
-    
-})
+    renderMessage(messageObject)
+
+    socket.emit("sendMessage", messageObject)
+
+    messageInput.value = "";
+    textAreaSize() // In index.js
+}
+
+sendMessageForm.addEventListener("submit", sendMessage)
 
 messageInput.addEventListener('keydown', (e)=> {
     if(e.key === "Enter") {
-        e.preventDefault()
-        
+        sendMessage(e);
     }
 })

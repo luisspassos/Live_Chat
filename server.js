@@ -35,7 +35,10 @@ io.on('connection', socket => {
     })
 
     socket.on("sendUser", data => {
-        data[data.length - 1].id = socket.id;
+
+        const dataIndex = data.length - 1;
+        
+        data[dataIndex].id = socket.id;
         users = data;
         socket.broadcast.emit("receivedUser", users);
     })

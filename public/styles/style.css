@@ -156,10 +156,8 @@ main {
     color: white;
     font-size: 1.2em;
     line-height: 1.4em;
-}
-
-.messageList > li > label {
-    color: #50FA7B;
+    max-width: 996px;
+    word-wrap: break-word;
 }
 
 .messageList > li > hr {
@@ -202,7 +200,6 @@ main {
 .emojiList > li:hover {
     background: rgba(0, 0, 0, 0.384);
 }
-
 
 .textAreaWrapper {
     background: var(--DARK-PURPLE);
@@ -293,7 +290,6 @@ main {
     font-weight: bold;
     font-size: 1.5em;
     padding-bottom: 5px;
-    overflow: hidden;
 }
 
 @media (max-width: 800px) {
