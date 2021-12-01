@@ -15,8 +15,10 @@ function renderMessage(message) {
     messageList.innerHTML += `<li><label style="color: ${message.color}">${message.name}</label>: ${message.message}<hr></li>`
 }
 
-function renderUserList(user) {
-    userList.innerHTML += `<li style="color: ${user.color}">${user.user}</Li>`
+function renderUserList(users) {
+    userList.innerHTML = users.map(user => {
+        return (`<li style="color: ${user.color}">${user.user}</Li>`)
+    }).join("")
 }
 
 socket.on("previousMessage", messages => {
@@ -26,17 +28,15 @@ socket.on("previousMessage", messages => {
 })
 
 socket.on("previousUser", users => {
-    users.forEach(user => {
-        renderUserList(user);
-    })
+    renderUserList(users);
 })
 // ver responsividade dps !!!!!!!!!!!
 socket.on("receivedMessage", message => {
     renderMessage(message)
 })
 
-socket.on("receivedUser", user => {
-    renderUserList(user)
+socket.on("receivedUser", users => {
+    renderUserList(users)
 })
 
 modalForm.addEventListener("submit", (e)=> {
