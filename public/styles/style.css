@@ -41,6 +41,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    height: 66px;
 }
 
 header > svg {
@@ -170,7 +171,7 @@ main {
     display: flex;
     flex-direction: column;
     padding-top: 15px;
-    margin: auto 40px 10px 20px;
+    margin: auto 40px 15px 20px;
 }
 
 .emojiList {
@@ -201,10 +202,6 @@ main {
     background: rgba(0, 0, 0, 0.384);
 }
 
-.messageInput {
-    display: flex;
-    align-items: center;
-}
 
 .textAreaWrapper {
     background: var(--DARK-PURPLE);
@@ -219,22 +216,28 @@ main {
 }
 
 .textAreaWrapper > textarea {
-   resize: none;
-   width: 100%;
-   font-size: 1.3em;
-   background: var(--DARK-PURPLE);
-   border-radius: 10px;
-   outline: 0;
-   color: white;
-   border: 0;
-   padding: 10px 10px 10px 52px;
-   line-height: 1.4em;
+    resize: none;
+    width: 100%;
+    font-size: 1.3em;
+    background: var(--DARK-PURPLE);
+    border-radius: 10px;
+    outline: 0;
+    color: white;
+    border: 0;
+    padding: 10px 10px 10px 52px;
+    line-height: 1.4em;
 }
+
 
 .textAreaWrapper > textarea::placeholder {
     overflow-x: hidden;
     white-space: nowrap;
     color: var(--WHITE-PRIMARY);
+}
+
+.messageInput {
+    display: flex;
+    align-items: center;
 }
 
 .messageInput > img {
