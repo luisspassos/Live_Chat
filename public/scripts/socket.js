@@ -35,8 +35,6 @@ socket.on("previousMessage", messages => {
     })
 })
 
-let userArr = [];
-
 socket.on("previousUser", users => {
     renderUserList(users);
     userArr = users;
@@ -54,21 +52,19 @@ socket.on("receivedUser", users => {
 modalForm.addEventListener("submit", (e)=> {
     e.preventDefault();
 
-    if(modalNameInput.value.length) {
+    const IsNotEmpty = modalNameInput.value.length;
 
+    if(!IsNotEmpty) {
+        alert("Nome de usuário incorreto.")
+    } else {
         modalWrapper.style.display = "none"
 
         const userObject = {
             user: modalNameInput.value,
             color: color
         }
-        userArr.push(userObject)
-        renderUserList(userArr)
-        socket.emit("sendUser", userArr)
 
-// Look it right
-    } else {
-        alert("Nome de usuário incorreto.")
+        socket.emit("sendUser", userObject)
     }
 })
 

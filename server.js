@@ -12,7 +12,7 @@ app.get("/", (req, res) => {
 })
 
 const messages = [];
-let users = [];
+const users = [];
 
 io.on('connection', socket => {
     console.log(`Socket conectado: ${socket.id}`)
@@ -35,12 +35,10 @@ io.on('connection', socket => {
     })
 
     socket.on("sendUser", data => {
-
-        const dataIndex = data.length - 1;
-        
-        data[dataIndex].id = socket.id;
-        users = data;
-        socket.broadcast.emit("receivedUser", users);
+        data.id = socket.id;
+        users.push(data);
+        socket.broadcast.emit("receivedUser", users); 
+        socket.emit("receivedUser", users);
     })
 })
 
