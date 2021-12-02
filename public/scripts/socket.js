@@ -41,7 +41,7 @@ socket.on("previousUser", users => {
     renderUserList(users);
     userArr = users;
 })
-// ver responsividade dps !!!!!!!!!!!
+
 socket.on("receivedMessage", message => {
     renderMessage(message)
 })
@@ -66,6 +66,7 @@ modalForm.addEventListener("submit", (e)=> {
         renderUserList(userArr)
         socket.emit("sendUser", userArr)
 
+// Look it right
     } else {
         alert("Nome de usuário incorreto.")
     }
