@@ -37,8 +37,7 @@ io.on('connection', socket => {
     socket.on("sendUser", data => {
         data.id = socket.id;
         users.push(data);
-        socket.broadcast.emit("receivedUser", users); 
-        socket.emit("receivedUser", users);
+        io.emit("receivedUser", users)
     })
 })
 

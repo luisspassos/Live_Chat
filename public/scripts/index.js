@@ -76,6 +76,7 @@ openEmojiListBtn.addEventListener("click", () => {
 function insertEmoji(emoji) {
     if (messageTextArea.value.length < 290) {
         messageTextArea.value += emoji;
+        textAreaSize()
     }
 }
 
